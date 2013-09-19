@@ -48,7 +48,7 @@ static TargetJITInfo::JITCompilerFn JITCompilerFunction;
 // write our own wrapper, which does things our way, so we have complete
 // control over register saving and restoring.
 extern "C" {
-#if defined(__arm__)
+#if defined(__arm__) && !defined(ANDROID)
   void ARMCompilationCallback();
   asm(
     ".text\n"
